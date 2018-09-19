@@ -10,6 +10,13 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { WpApiProvider } from '../providers/wp-api/wp-api';
+import { RadioSourceProvider } from '../providers/radio-source/radio-source';
+import { HttpClientModule } from '@angular/common/http';
+import { RadioPlayerPage } from '../pages/radio-player/radio-player';
+import { PostDetailPage } from '../pages/post-detail/post-detail';
+
+
 
 @NgModule({
   declarations: [
@@ -17,11 +24,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    RadioPlayerPage,
+    PostDetailPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,12 +39,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    RadioPlayerPage,
+    PostDetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    WpApiProvider,
+    RadioSourceProvider,
+    HttpClientModule
   ]
 })
 export class AppModule {}

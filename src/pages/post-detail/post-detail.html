@@ -1,0 +1,15 @@
+<ion-header>
+
+    <ion-navbar>
+      <ion-title></ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content no-padding>
+    <img [src]="post._embedded['wp:featuredmedia'][0].source_url"/>
+    <h2>{{post.title.rendered}}</h2>
+    <div [innerHTML]="post.content.rendered " class="post-content" padding></div>
+  
+  </ion-content>
